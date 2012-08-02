@@ -3,11 +3,9 @@ whoyeah
 =======
 a grep like text finder in Python
 
-Usage::
+Usage: whoyeah.py [options] PATTERN
 
-  whoyeah.py [options] PATTERN
-
-Options::
+Options
   -h, --help            show this help message and exit
   -i, --ignore_case     ignore case sensitive
   -t TARGET, --target=TARGET
