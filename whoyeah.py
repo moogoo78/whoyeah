@@ -59,12 +59,21 @@ def main(str_pattern, target_dir):
 
     print 'Summary:'
     print '--------'
+    num_replace = 0
     for fn in file_list:
-        print fn
+        # replace string!!
+        if options.str_replace:
+            num_replace += 1
+            s = open(fn).read()
+            s = s.replace(str_pattern, options.str_replace)
+            fw = open(fn, 'w')
+            fw.write(s)
+            fw.close()
     print '--------'
     print '  match', set_color(num_matches, 94), 'times, in', set_color(num_match_files, 94), 'files.'
     print '  total find', set_color(num_files, 94), 'files'
-
+    if num_replace > 0:
+        print '<<< string replaced by: ' + options.str_replace + '!!! >>>'
 
 def find_in_file(f, path, str_pattern):
     full_path = os.path.join(path, f)
@@ -143,6 +152,7 @@ if __name__ == '__main__':
     parser.add_option("-q", '--quiet', dest='quiet_dir', default='',
                       help='ignore file or directory to be search',
                       metavar='BIGFILE')
+    parser.add_option('-s', '--replace', dest='str_replace', help='replace by new string', metavar='NEW_STRING')
 
     (options, args) = parser.parse_args()
 
