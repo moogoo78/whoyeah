@@ -3,6 +3,19 @@ whoyeah
 =======
 a grep like text finder in Python
 
+Usage::
+
+  whoyeah.py [options] PATTERN
+
+Options::
+  -h, --help            show this help message and exit
+  -i, --ignore_case     ignore case sensitive
+  -t TARGET, --target=TARGET
+                        set search target
+  -q BIGFILE, --quiet=BIGFILE
+                        ignore file or directory to be search
+  -s NEW_STRING, --replace=NEW_STRING
+                        replace by new string
 
 Inspired
 ========
