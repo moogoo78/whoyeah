@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -.- coding: utf-8 -.-
-#
-#
-#
+# 
 #
 
 # for file open
@@ -61,6 +59,7 @@ def main(str_pattern, target_dir):
     print '--------'
     num_replace = 0
     for fn in file_list:
+        print fn
         # replace string!!
         if options.str_replace:
             num_replace += 1
