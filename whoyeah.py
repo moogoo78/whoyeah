@@ -82,7 +82,7 @@ def find_in_file(f, path, str_pattern):
                 
     with open(full_path) as fopen:
         if is_binary(full_path) != 1 and f not in IGNORE_FILES:
-            found = 0
+            found = 0 # num of keyword found
             # find in each line
             for line in fopen:
                 match = []
@@ -95,9 +95,13 @@ def find_in_file(f, path, str_pattern):
                     if found == 0:
                         print set_color(full_path, 91)
                     for keyword in match:
-                        line = replace_by_color(line, keyword, 95)
+                        line = replace_by_color(line, keyword, 95)                        
                         found += 1
-                    print set_color(ln, 93) + ': ' + line[:-1]
+                        
+                    if len(line) < 500:
+                        print set_color(ln, 93) + ': ' + line[:-1]
+                    else:
+                        print '--- too long ---'
 
         return found
 
