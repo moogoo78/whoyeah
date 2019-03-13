@@ -115,9 +115,9 @@ def replace_by_color(string, keyword, color_code):
         return string.replace(str(keyword), set_color(str(keyword),95) )
 
 def set_color(keyword, color_code):
-    if os.getenv('TERM',None) in ['rxvt','xterm']:
-        #return keyword.replace(str(keyword), '\033[0;'+str(color_code)+'m'+str(keyword)+'\033[m')
-        return '\033[0;' + str(color_code) + 'm' + str(keyword) + '\033[m'
+    if os.getenv('TERM',None) in ['rxvt','xterm', 'xterm-256color']:
+        return str(keyword).replace(str(keyword), '\033[0;'+str(color_code)+'m'+str(keyword)+'\033[m')
+        #return '\033[0;' + str(color_code) + 'm' + str(keyword) + '\033[m'
 #    elif os.name == "nt":
 #        windll.Kernel32.SetConsoleTextAttribute(std_out_handle, 10)
 #        print str(keyword)
